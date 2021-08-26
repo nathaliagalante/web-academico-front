@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import { Menu } from './components/menu/Menu';
+import  Form  from './components/form/Form';
+import  Home  from './pages/home/Home';
+import  FazerMatricula from './pages/VidaAcademica/FazerMatricula';
+import Horario from './pages/VidaAcademica/Horario';
+import Boletim from './pages/VidaAcademica/Boletim';
+import CancelarInscricao from './pages/VidaAcademica/CancelarInscricao';
+import ConsultarACG from './pages/VidaAcademica/ConsultarACG';
+import Historico from './pages/VidaAcademica/Historico';
+import ResponderCPA from './pages/VidaAcademica/ResponderCPA';
+import AtualizarCadastro from './pages/conta/AtualizarCadastro/AtualizarCadastro';
+import AlterarSenha from './pages/conta/AlterarSenha/AlterarSenha';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <Switch>
+            {/* <Route component={ Form } /> */}
+            <Route exact path="/home" component={ Home }/>
+            <Route path="/VidaAcademica/FazerMatricula" component={ FazerMatricula } />
+            <Route path="/VidaAcademica/Horario" component={ Horario } />
+            <Route path="/VidaAcademica/Boletim" component={ Boletim } />
+            <Route path="/VidaAcademica/CancelarInscricao" component={ CancelarInscricao } />
+            <Route path="/VidaAcademica/ConsultarACG" component={ ConsultarACG } />
+            <Route path="/VidaAcademica/Historico" component={ Historico } />
+            <Route path="/VidaAcademica/ResponderCPA" component={ ResponderCPA } />
+            <Route path="/conta/AtualizarCadastro" component={ AtualizarCadastro } />
+            <Route path="/conta/AlterarSenha" component={ AlterarSenha } />
+      </Switch>
+    </BrowserRouter>
+    
   );
 }
 

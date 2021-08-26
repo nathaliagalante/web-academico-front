@@ -1,0 +1,25 @@
+.navbar-dark .navbar-brand {
+    display: inline-block;
+    background-image: linear-gradient(to right,  #1177D1 ,  #1177d15e );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.nav-link span{
+    margin-left: 5px;
+}
+
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1.2rem;
+        padding-left: 1.2rem;
+    }
+}
+
+
+
