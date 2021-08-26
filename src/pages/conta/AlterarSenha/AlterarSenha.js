@@ -1,28 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
 
+import useForm from './useForm';
+
 const AlterarSenha = () => {
-    const [senhaAtual, setSenhaAtual] = useState('');
-    const [senhaNova, setSenhaNova] = useState('');
-    const [senhaConfirmada, setSenhaConfirmada] = useState('');
-
-    const senhaAtualChange = e => {
-        setSenhaAtual(e.target.value);
-    }
-
-    const senhaNovaChange = e => {
-        setSenhaNova(e.target.value);
-    }
-
-    const senhaConfirmadaChange = e => {
-        setSenhaConfirmada(e.target.value);
-    }
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log('dados enviados')
-    }
-
+    const { handleChange, values, handleSubmit } = useForm();
 
     return (
         <div>
@@ -36,7 +18,7 @@ const AlterarSenha = () => {
                         Senha Atual
                         </Form.Label>
                         <Col sm="10">
-                        <Form.Control value={senhaAtual} onChange={senhaAtualChange} type="password" placeholder="Senha" />
+                        <Form.Control value={values.senhaAtual} onChange={handleChange} type="password" placeholder="Senha" name="senhaAtual" />
                         </Col>
                     </Form.Group>
 
@@ -45,7 +27,7 @@ const AlterarSenha = () => {
                         Nova Senha
                         </Form.Label>
                         <Col sm="10">
-                        <Form.Control value={senhaNova} onChange={senhaNovaChange} type="password" placeholder="Senha" />
+                        <Form.Control value={values.senhaNova} onChange={handleChange} type="password" placeholder="Senha" name="senhaNova" />
                         </Col>
                     </Form.Group>
 
@@ -54,7 +36,7 @@ const AlterarSenha = () => {
                         Confirme Nova Senha
                         </Form.Label>
                         <Col sm="10">
-                        <Form.Control value={senhaConfirmada} onChange={senhaConfirmadaChange} type="password" placeholder="Senha" />
+                        <Form.Control value={values.senhaConfirmada} onChange={handleChange} type="password" placeholder="Senha" name="senhaConfirmada" />
                         </Col>
                     </Form.Group>
 
