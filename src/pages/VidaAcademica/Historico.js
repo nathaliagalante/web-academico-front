@@ -7,19 +7,46 @@ import './styles.css';
 
 const Historico = () => {
     const [materias, setMaterias] = useState([]);
-    const theadings = ['Período', 'Semestre', 'Disciplina', 'Professor', 'Nota', 'Situação'];
+    
+    const columns = React.useMemo(() => [
+        {
+            Header: 'Período',
+            accessor: 'periodo'
+        },
+        {
+            Header: 'Semestre',
+            accessor: 'semestre'
+        },
+        {
+            Header: 'Disciplina',
+            accessor: 'nome'
+        },
+        {
+            Header: 'Professor',
+            accessor: 'professor'
+        },
+        {
+            Header: 'Nota',
+            accessor: 'nota'
+        },
+        {
+            Header: 'Situação',
+            accessor: 'situacao'
+        }
+    ], []);
+
 
     useEffect(function(){
         const url = window.servidor + '/materias';
         fetch(url)
-            .then(respostaDoServidor => respostaDoServidor.json())
-            .then(respostaCompleta => setMaterias(respostaCompleta))
-    }, [])
+            .then(res => res.json())
+            .then(data => setMaterias(data))
+    }, []);
     
     return (
             <Container>
                 <h1 className="heading--table mb-4">Histórico</h1>
-                <TableComponent th={theadings} items={materias} />
+                <TableComponent columns={columns} data={materias} />
             </Container>
     )
 }
