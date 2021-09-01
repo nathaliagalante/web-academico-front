@@ -4,15 +4,16 @@ import './App.css';
 import { Menu } from './components/menu/Menu';
 import  Form  from './components/form/Form';
 import  Home  from './pages/home/Home';
-import  FazerMatricula from './pages/VidaAcademica/FazerMatricula';
-import Horario from './pages/VidaAcademica/Horario';
-import Boletim from './pages/VidaAcademica/Boletim';
-import CancelarInscricao from './pages/VidaAcademica/CancelarInscricao';
-import ConsultarACG from './pages/VidaAcademica/ConsultarACG';
-import Historico from './pages/VidaAcademica/Historico';
-import ResponderCPA from './pages/VidaAcademica/ResponderCPA';
+import  FazerMatricula from './pages/VidaAcademica/matricula/FazerMatricula';
+import Horario from './pages/VidaAcademica/horario/Horario';
+import Boletim from './pages/VidaAcademica/boletim/Boletim';
+import CancelarInscricao from './pages/VidaAcademica/inscrição/CancelarInscricao';
+import ConsultarACG from './pages/VidaAcademica/acg/ConsultarACG';
+import Historico from './pages/VidaAcademica/historico/Historico';
+import ResponderCPA from './pages/VidaAcademica/cpa/ResponderCPA';
 import AtualizarCadastro from './pages/conta/AtualizarCadastro/AtualizarCadastro';
 import AlterarSenha from './pages/conta/AlterarSenha/AlterarSenha';
+import Comprovante from './pages/VidaAcademica/horario/Comprovante';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/home" component={ Home }/>
             <Route path="/VidaAcademica/FazerMatricula" component={ FazerMatricula } />
             <Route path="/VidaAcademica/Horario" component={ Horario } />
+            <Route path="/VidaAcademica/Comprovante" component={ Comprovante} />
             <Route path="/VidaAcademica/Boletim" component={ Boletim } />
             <Route path="/VidaAcademica/CancelarInscricao" component={ CancelarInscricao } />
             <Route path="/VidaAcademica/ConsultarACG" component={ ConsultarACG } />

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Container} from 'react-bootstrap'
-import TableComponent from '../../components/table';
+import TableComponent from '../../../components/table';
 
-import './styles.css';
+import '../styles.css';
 
 
 const Historico = () => {
