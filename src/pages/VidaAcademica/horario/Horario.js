@@ -44,15 +44,13 @@ const Horario = () => {
     }, []);
 
 
-
     return (
-        <div>
-            <Container> 
-                <h1 className="mb-4">Consultar Horário</h1>
+            <Container className="mt-5"> 
+                <h1>Horário</h1>
+                <hr className="mb-4"></hr>
                 <TableComponent columns={columns} data={materias} />
                 <Link to="/VidaAcademica/Comprovante" className="btn btn-primary mt-2">Gerar Comprovante</Link>
             </Container>
-        </div>
     )
 }
 

@@ -7,8 +7,7 @@ const AlterarSenha = () => {
     const { handleChange, values, handleSubmit } = useForm();
 
     return (
-        <div>
-            <Container>
+            <Container className="mt-5">
                 <h1>Alterar Senha</h1>
                 <hr></hr>
 
@@ -45,7 +44,6 @@ const AlterarSenha = () => {
                     </Button>
                 </Form>
             </Container>
-        </div>
     )
 }
 

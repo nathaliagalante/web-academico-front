@@ -44,7 +44,7 @@ const Historico = () => {
     }, []);
     
     return (
-            <Container>
+            <Container className="mt-5">
                 <h1 className="heading--table mb-4">Histórico</h1>
                 <TableComponent columns={columns} data={materias} />
             </Container>

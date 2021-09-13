@@ -15,7 +15,7 @@ function TableComponent({columns, data}){
       });
 
     return(
-        <Table responsive bordered {...getTableProps()}>
+        <Table className="mt-2" responsive bordered {...getTableProps()}>
             <thead>
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>

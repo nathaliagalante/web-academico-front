@@ -8,7 +8,6 @@ const AtualizarCadastro = () => {
     const { onHandleChange, values, handleSubmit} = useForm();
 
     return (
-        <div>
             <Container className="mt-5">
                 <h1>Atualizar Cadastro</h1>
                 <hr></hr>
@@ -84,7 +83,6 @@ const AtualizarCadastro = () => {
                     </Button>
                 </Form>
             </Container>
-        </div>
     )
 }
 
