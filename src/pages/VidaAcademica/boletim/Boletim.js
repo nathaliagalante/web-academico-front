@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import TableComponent from '../../../components/table';
 
+import '../styles.css';
+
 const Boletim = () => {
     const [materias, setMaterias] = useState([]);
     const [estagio, setEstagio] = useState([]);
@@ -127,29 +129,29 @@ const Boletim = () => {
         }
     ], []);
 
+    
     useEffect(() => {
         const url = window.servidor;
-        fetch(url + '/materias/cursando')
+        fetch(url + '/materias/cursando/boletim')
             .then(res => res.json())
             .then(data => setMaterias(data));
 
-        fetch(url + '/materias/estagio')
+            fetch(url + '/materias/estagio')
             .then(res => res.json())
             .then(data => setEstagio(data));
 
-        fetch(url + '/materias/tcc')
+            fetch(url + '/materias/tcc')
             .then(res => res.json())
             .then(data => setTCC(data));
-        
-    })
+    }, []);
 
     return (
         <Container className="mt-5">
-                <h1 className="heading--table">Boletim</h1>
+                <h1>Boletim</h1>
                 <hr className="mb-4"></hr>
-                <TableComponent columns={columnsMaterias} data={materias} />
-                <TableComponent columns={columnsEstagio} data={estagio} />
-                <TableComponent columns={columnsTcc} data={tcc} /> 
+                <TableComponent columns={columnsMaterias} data={materias} headerColor="blue-primary" />
+                <TableComponent columns={columnsEstagio} data={estagio} headerColor="blue-primary"/>
+                <TableComponent columns={columnsTcc} data={tcc} headerColor="blue-primary"/> 
         </Container>
     )
 }

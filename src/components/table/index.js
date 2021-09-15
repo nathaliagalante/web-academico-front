@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap'
 import { useTable } from 'react-table'
 
-function TableComponent({columns, data}){
+function TableComponent({columns, data, headerColor}){
     const {
         getTableProps,
         getTableBodyProps,
@@ -15,7 +15,7 @@ function TableComponent({columns, data}){
       });
 
     return(
-        <Table className="mt-2" responsive bordered {...getTableProps()}>
+        <Table style={{backgroundColor: `var(${headerColor})` }} className="mt-2" responsive bordered {...getTableProps()}>
             <thead>
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
