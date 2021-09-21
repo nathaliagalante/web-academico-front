@@ -2,39 +2,45 @@ import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-import TableComponent from '../../../components/table';
+import { Table } from 'antd';
 
 import '../styles.css';
 
 const Horario = () => {
     const [materias, setMaterias] = useState([]);
 
-    const columns = React.useMemo(() => [
-        {
-            Header: 'Turma',
-            accessor: 'turma'
+    const columns = [
+        { 
+            title: 'Turma', 
+            dataIndex: 'turma', 
+            key: 'turma' 
         },
-        {
-            Header: 'Disciplina',
-            accessor: 'nome'
+        { 
+            title: 'Disciplina', 
+            dataIndex: 'nome', 
+            key: 'nome' 
         },
-        {
-            Header: 'Qtd Reprovação (Após 2017/1)',
-            accessor: 'qtd_reprovacao'
+        { 
+            title: 'Qtd Reprovação (Após 2017/1)', 
+            dataIndex: 'qtd_reprovacao', 
+            key: 'qtd_reprovacao',
         },
-        {
-            Header: 'Professor',
-            accessor: 'professor'
+        { 
+            title: 'Professor', 
+            dataIndex: 'professor', 
+            key: 'professor' 
         },
-        {
-            Header: 'Horário 1',
-            accessor: 'horario_1'
+        { 
+            title: 'Horário 1', 
+            dataIndex: 'horario_1', 
+            key: 'horario_1' 
         },
-        {
-            Header: 'Horário 2',
-            accessor: 'horario_2'
+        { 
+            title: 'Horário 2', 
+            dataIndex: 'horario_2', 
+            key: 'horario_2' 
         }
-    ], []);
+    ];
 
     useEffect(() => {
         const url = window.servidor + '/materias/cursando';
@@ -45,11 +51,15 @@ const Horario = () => {
 
 
     return (
-            <Container className="mt-5"> 
+            <Container className="mt-4" style={{ maxHeight: '60vh' }}> 
                 <h1>Horário</h1>
                 <hr className="mb-4"></hr>
-                <TableComponent columns={columns} data={materias} />
-                <Link to="/VidaAcademica/Comprovante" className="btn btn-primary mt-2">Gerar Comprovante</Link>
+                <Table
+                    columns={columns}
+                    dataSource={materias}
+                    pagination={false}
+                />
+                <Link to="/VidaAcademica/Comprovante" className="btn btn-primary mt-3">Gerar Comprovante</Link>
             </Container>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import TableComponent from '../../../components/table';
+import { Table } from 'antd';
 
 import '../styles.css';
 
@@ -9,127 +9,150 @@ const Boletim = () => {
     const [estagio, setEstagio] = useState([]);
     const [tcc, setTCC] = useState([]);
 
-    const columnsMaterias = React.useMemo(() => [
-        {
-            Header: 'Turmas',
-            columns: [
+    const columnsMaterias = [
+        { 
+            title: 'Turmas', 
+            children: [
                 {
-                    Header: 'Disciplina',
-                    accessor: 'nome'
+                    title: 'Disciplina',
+                    dataIndex: 'nome',
+                    key: 'nome'
                 },
                 {
-                    Header: 'Professor',
-                    accessor: 'professor'
-                },
+                    title: 'Professor',
+                    dataIndex: 'professor',
+                    key: 'professor'
+                }
             ]
         },
-        {
-            Header: 'Notas',
-            columns: [
+        { 
+            title: 'Notas', 
+            children: [
                 {
-                    Header: 'Nota 1',
-                    accessor: 'nota_1'
+                    title: 'Nota 1',
+                    dataIndex: 'nota_1',
+                    key: 'nota_1'
                 },
                 {
-                    Header: 'Nota 2',
-                    accessor: 'nota_2'
+                    title: 'Nota 2',
+                    dataIndex: 'nota_2',
+                    key: 'nota_2'
                 },
                 {
-                    Header: 'Média',
-                    accessor: 'media'
+                    title: 'Média',
+                    dataIndex: 'media',
+                    key: 'media'
                 },
                 {
-                    Header: 'Final',
-                    accessor: 'nota_final'
+                    title: 'Final',
+                    dataIndex: 'nota_final',
+                    key: 'nota_final'
                 },
                 {
-                    Header: 'Média Final',
-                    accessor: 'media_final'
-                },
+                    title: 'Média Final',
+                    dataIndex: 'media_final',
+                    key: 'media_final'
+                }
             ]
         },
-        {
-            Header: 'Frequência',
-            columns: [
+        { 
+            title: 'Frequência', 
+            children: [
                 {
-                    Header: 'Faltas',
-                    accessor: 'faltas'
+                    title: 'Faltas',
+                    dataIndex: 'faltas',
+                    key: 'faltas'
                 },
                 {
-                    Header: 'Qtd. Aulas',
-                    accessor: 'qtd_aulas'
+                    title: 'Qtd. Aulas',
+                    dataIndex: 'qtd_aulas',
+                    key: 'qtd_aulas'
                 },
                 {
-                    Header: '%',
-                    accessor: 'percent_faltas'
+                    title: '%',
+                    dataIndex: 'percent_faltas',
+                    key: 'percent_faltas'
                 },
                 {
-                    Header: 'Situação',
-                    accessor: 'situacao'
-                },
+                    title: 'Situação',
+                    dataIndex: 'situacao',
+                    key: 'situacao'
+                }
             ]
         }
-    ], []);
+    ];
 
-    const columnsEstagio = React.useMemo(() => [
-        {
-            Header: 'Período',
-            accessor: 'periodo'
+    const columnsEstagio = [
+        { 
+            title: 'Período', 
+            dataIndex: 'periodo', 
+            key: 'periodo' 
         },
-        {
-            Header: 'Disciplina',
-            accessor: 'nome'
+        { 
+            title: 'Disciplina', 
+            dataIndex: 'nome', 
+            key: 'nome' 
         },
-        {
-            Header: 'Professor',
-            accessor: 'professor'
+        { 
+            title: 'Professor', 
+            dataIndex: 'professor', 
+            key: 'professor' 
         },
-        {
-            Header: 'Nome da Empresa',
-            accessor: 'nome_empresa'
+        { 
+            title: 'Nome da empresa', 
+            dataIndex: 'nome_empresa', 
+            key: 'nome_empresa' 
         },
-        {
-            Header: 'Período Letivo',
-            accessor: 'periodo_letivo'
+        { 
+            title: 'Período Letivo', 
+            dataIndex: 'periodo_letivo', 
+            key: 'periodo_letivo' 
         },
-        {
-            Header: 'Carga Horária',
-            accessor: 'carga_horaria'
+        { 
+            title: 'Carga Horária', 
+            dataIndex: 'carga_horaria', 
+            key: 'carga_horaria' 
         },
-        {
-            Header: 'Resultado',
-            accessor: 'resultado'
+        { 
+            title: 'Resultado', 
+            dataIndex: 'resultado', 
+            key: 'resultado' 
+        },
+    ];
+
+    const columnsTcc = [
+        { 
+            title: 'Período', 
+            dataIndex: 'periodo', 
+            key: 'periodo' 
+        },
+        { 
+            title: 'Disciplina', 
+            dataIndex: 'nome', 
+            key: 'nome' 
+        },
+        { 
+            title: 'Professor', 
+            dataIndex: 'professor', 
+            key: 'professor' 
+        },
+        { 
+            title: 'Período Letivo', 
+            dataIndex: 'periodo_letivo', 
+            key: 'periodo_letivo' 
+        },
+        { 
+            title: 'Nota', 
+            dataIndex: 'nota', 
+            key: 'nota' 
+        },
+        { 
+            title: 'Resultado', 
+            dataIndex: 'resultado', 
+            key: 'resultado' 
         }
-    ], []);
+    ];
 
-    const columnsTcc = React.useMemo(() => [
-        {
-            Header: 'Período',
-            accessor: 'periodo'
-        },
-        {
-            Header: 'Disciplina',
-            accessor: 'nome'
-        },
-        {
-            Header: 'Professor',
-            accessor: 'professor'
-        },
-        {
-            Header: 'Período Letivo',
-            accessor: 'periodo_letivo'
-        },
-        {
-            Header: 'Nota',
-            accessor: 'nota'
-        },
-        {
-            Header: 'Resultado',
-            accessor: 'resultado'
-        }
-    ], []);
-
-    
     useEffect(() => {
         const url = window.servidor;
         fetch(url + '/materias/cursando/boletim')
@@ -146,12 +169,33 @@ const Boletim = () => {
     }, []);
 
     return (
-        <Container className="mt-5">
+        <Container style={{ maxHeight: '60vh' }}>
                 <h1>Boletim</h1>
                 <hr className="mb-4"></hr>
-                <TableComponent columns={columnsMaterias} data={materias} headerColor="blue-primary" />
-                <TableComponent columns={columnsEstagio} data={estagio} headerColor="blue-primary"/>
-                <TableComponent columns={columnsTcc} data={tcc} headerColor="blue-primary"/> 
+
+                <Table 
+                    columns={columnsMaterias}
+                    dataSource={materias}
+                    pagination={false}
+                    bordered={true}
+                    size="middle"
+                />
+
+                <Table 
+                    style={{ marginTop: '15px' }}
+                    columns={columnsEstagio}
+                    dataSource={estagio}
+                    pagination={false}
+                    size="middle"
+                />
+
+                <Table 
+                    style={{ marginTop: '15px' }}
+                    columns={columnsTcc}
+                    dataSource={tcc}
+                    pagination={false}
+                    size="middle"
+                />
         </Container>
     )
 }

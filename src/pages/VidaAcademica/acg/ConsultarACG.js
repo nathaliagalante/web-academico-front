@@ -1,26 +1,20 @@
-import React, {useState, useMemo, useEffect} from 'react';
-import { Container, Button } from 'react-bootstrap';
-
-import TableComponent from '../../../components/table';
+import React, {useState, useEffect} from 'react';
+import { Container } from 'react-bootstrap';
+import { Table } from 'antd';
 
 const ConsultarACG = () => {
     const [acgs, setAcgs] = useState([]);
 
-    const columns = useMemo(() => [
-        {
-            Header: 'Categoria',
-            accessor: 'categoria'
-        },
-        {
-            Header: 'Horas',
-            accessor: 'horas',
-        },
-        {
-            Header: '',
-            accessor: 'detalhes',
-            Cell: props => <Button variant="info">Detalhes</Button>,
-        }
-    ], []);
+    const columns = [
+        { title: 'Categoria', dataIndex: 'categoria', key: 'categoria'},
+        { title: 'Horas', dataIndex: 'horas', key: 'horas'}
+    ]
+
+    const columnsDetalhes = [
+        { title: 'Data', dataIndex: 'data', key: 'data' },
+        { title: 'Descrição', dataIndex: 'descricao', key: 'descricao' },
+        { title: 'Horas', dataIndex: 'horas', key: 'horas' }
+    ]
 
     useEffect(() => {
         const url = window.servidor + '/acgs';
@@ -30,11 +24,30 @@ const ConsultarACG = () => {
     }, []);
 
     return (
-        <Container className="">
-            <h1>ACGs</h1>
-            <hr></hr>
-            <TableComponent columns={columns} data={acgs} />
-        </Container>
+        <>
+            <Container className="mt-5" style={{ maxHeight: '60vh' }}>
+                <h1>ACGs</h1>
+                <hr></hr>
+                <Table 
+                    columns={columns}
+                    dataSource={acgs}
+                    pagination={false} 
+                    expandable={{
+                        expandedRowRender: record => 
+                            <Table 
+                                style={{margin: 0}}
+                                columns={columnsDetalhes} 
+                                dataSource={record.detalhes} 
+                                title={() => 'Detalhes'} 
+                                pagination={false} 
+                            />
+                        ,
+                        rowExpandable: record => record.categoria
+                    }}
+                />
+            </Container>
+
+        </>
     
     )
 }

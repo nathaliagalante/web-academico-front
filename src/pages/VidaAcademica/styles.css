@@ -1,27 +1,7 @@
-/* --- color --- */
-th{
-    --blue-primary: #1177D1;
-}
-
-
 h1{
     font-weight: 300;
 }
 
-
-/* --- table --- */
-.heading--table{
-    margin-top: 100px;
-}
-
 .table{
     background: #fff;
-}
-
-th{
-    background-color: var(--blue-primary);
-}
-
-td {
-    font-size: 14px;
 }
