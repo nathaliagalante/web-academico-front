@@ -13,3 +13,14 @@ html, body{
   text-rendering: optimizeLegibility;
   color: rgb(56, 56, 56);
 }
+
+@media (max-width: 559px) {
+    .container{
+        max-width: 490px;
+    }
+
+    .btn-matricula{
+        bottom: 0px;
+        top: 600px;
+    }
+}

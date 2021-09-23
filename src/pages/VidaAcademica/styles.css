@@ -5,3 +5,22 @@ h1{
 .table{
     background: #fff;
 }
+
+.btn-matricula{
+    position: absolute;
+    bottom: 120px;
+    width: 100px;
+    
+}
+
+@media (max-width: 997px) {
+    .btn-matricula{
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 790px) {
+    .btn-matricula{
+        bottom: 20px;
+    }
+}
