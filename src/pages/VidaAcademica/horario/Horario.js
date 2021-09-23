@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
-
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 
 import '../styles.css';
 
@@ -52,14 +50,22 @@ const Horario = () => {
 
     return (
             <Container className="mt-4" style={{ maxHeight: '60vh' }}> 
-                <h1>Horário</h1>
+                <h1>Horário Atual</h1>
                 <hr className="mb-4"></hr>
                 <Table
                     columns={columns}
                     dataSource={materias}
                     pagination={false}
                 />
-                <Link to="/VidaAcademica/Comprovante" className="btn btn-primary mt-3">Gerar Comprovante</Link>
+                
+                <Button 
+                    type="primary"
+                    size="large" 
+                    className="mt-3"
+                    href="/VidaAcademica/Comprovante"
+                >
+                    Gerar comprovante
+                </Button>
             </Container>
     )
 }
