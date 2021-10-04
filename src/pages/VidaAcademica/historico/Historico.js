@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Container} from 'react-bootstrap'
 
 import { Table, Input, Button, Space } from 'antd';
@@ -6,9 +6,11 @@ import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 
 import '../styles.css';
+import { UserContext } from '../../../services/UserContext';
 
 
 const Historico = () => {
+    const { usuario } = useContext(UserContext);
     const [materias, setMaterias] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');

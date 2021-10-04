@@ -1,18 +1,22 @@
-import React from 'react'
-import { useLocation } from "react-router-dom";
+import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 import './Menu.css'
 import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap'
+import { Button } from 'antd';
 import { HomeOutlined, FileOutlined, UserOutlined, VerticalLeftOutlined } from '@ant-design/icons';
 
 export const Menu = () => {
-    //assigning location variable
-    const location = useLocation();
+    const [usuario] = useState([]);
+    const[loading, setLoading] = useState(false);
+    let history = useHistory();
 
-    //destructuring pathname from location
-    const { pathname } = location;
-
-    //Javascript split method to get the name of the path in array
-    const splitLocation = pathname.split("/");
+    const handleLogout = () => {
+        setTimeout(() => {
+            setLoading(true);
+            localStorage.removeItem('usuario', usuario);
+            history.push("/");
+        }, 2000);
+    }
 
     return (
         <div>
@@ -23,7 +27,7 @@ export const Menu = () => {
 
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="/home" className={splitLocation[1] === "" ? "active" : ""}>
+                            <Nav.Link href="/home">
                                 <HomeOutlined />
                                 <span>Página Inicial</span>
                             </Nav.Link>
@@ -31,7 +35,6 @@ export const Menu = () => {
                             <NavDropdown 
                                 title={ <span> <FileOutlined /> <span>Vida Acadêmica</span> </span> } 
                                 id="collasible-nav-dropdown"
-                                className={splitLocation[1] === "" ? "active" : ""}
                                 >
 
                                 <NavDropdown.Item href="/VidaAcademica/FazerMatricula">Fazer Matrícula</NavDropdown.Item>
@@ -39,7 +42,6 @@ export const Menu = () => {
                                 <NavDropdown.Item href="/VidaAcademica/Boletim">Consultar Boletim</NavDropdown.Item>
                                 <NavDropdown.Item href="/VidaAcademica/Historico">Consultar Histórico</NavDropdown.Item>
                                 <NavDropdown.Item href="/VidaAcademica/ConsultarACG">Consultar ACG</NavDropdown.Item>
-                                <NavDropdown.Item href="/VidaAcademica/CancelarInscricao">Cancelar Inscrição</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/VidaAcademica/ResponderCPA">Responder CPA</NavDropdown.Item>
                             </NavDropdown>
@@ -47,7 +49,6 @@ export const Menu = () => {
                             <NavDropdown 
                                 title={ <span> <UserOutlined /> <span>Conta</span> </span> } 
                                 id="collasible-nav-dropdown"
-                                className={splitLocation[1] === "" ? "active" : ""}
                                 >
 
                                 <NavDropdown.Item href="/conta/AtualizarCadastro">Atualizar Cadastro</NavDropdown.Item>
@@ -57,10 +58,15 @@ export const Menu = () => {
                         </Nav>
 
                         <Nav>
-                            <Nav.Link href="/login" className="text-white">
+                            <Button 
+                            type="link" 
+                            className="btn-menu" 
+                            onClick={handleLogout}
+                            loading={loading}
+                            >
                                 <span>Sair</span>
                                 <VerticalLeftOutlined />
-                            </Nav.Link>
+                            </Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

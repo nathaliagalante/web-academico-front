@@ -1,6 +1,6 @@
-.navbar-dark .navbar-brand {
+.navbar .navbar-brand {
     display: inline-block;
-    background-image: linear-gradient(to right,  #1177D1 ,  #8fbae0 );
+    background-image: linear-gradient(to right, rgb(77, 149, 190)  ,  rgb(68, 212, 214) );
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -14,19 +14,17 @@
     margin-left: 5px;
 }
 
-.nav-link{
-    display: flex;
-    align-items: center;
-}
-
+.nav-link, 
+.btn-menu,
 span{
     display: flex;
     align-items: center;
 }
 
-.active{
-    color:#1177D1;
+.btn-menu{
+    color: rgb(78, 177, 216); 
 }
+
 
 @media (min-width: 992px){
     .navbar-expand-lg .navbar-nav .nav-link {

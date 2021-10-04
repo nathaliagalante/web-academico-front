@@ -38,7 +38,6 @@ const ConsultarACG = () => {
                                 style={{margin: 0}}
                                 columns={columnsDetalhes} 
                                 dataSource={record.detalhes} 
-                                title={() => 'Detalhes'} 
                                 pagination={false} 
                             />
                         ,

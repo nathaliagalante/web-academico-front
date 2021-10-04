@@ -5,26 +5,11 @@ laranja : #f98012 */
     width: 72.75rem;
 }
 
-.card{
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    border: 0;
-    height: 100px;
-}
-
-.card .card-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-}
-
-.card-info p{
+p{
     font-size: 16px;
 }
 
-.card-info h2{
+h2{
     color: #f98012;
     font-weight: 700;
 }
