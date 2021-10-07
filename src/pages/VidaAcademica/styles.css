@@ -13,6 +13,13 @@ h1{
     
 }
 
+.box__questionarios h2{
+    color: #555;
+    font-size: 1.7rem;
+    font-weight: 300;
+    margin-right: 10px;
+}
+
 @media (max-width: 997px) {
     .btn-matricula{
         bottom: 80px;
