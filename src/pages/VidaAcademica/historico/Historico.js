@@ -133,7 +133,7 @@ const Historico = () => {
     }, []);
     
     return (
-            <Container style={{ maxHeight: '60vh' }}>
+            <Container style={{ maxHeight: '65vh' }}>
                 <h1>Histórico</h1>
                 <hr className="mb-4"></hr>
                 <Table 

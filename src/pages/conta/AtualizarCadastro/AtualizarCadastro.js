@@ -1,11 +1,85 @@
-import React from 'react'
-import { Container, Form, Row, Col, Button } from 'react-bootstrap'
+import React, { useState, useContext} from 'react'
+import { Container, Form, Row, Col } from 'react-bootstrap'
+import { Button, message } from 'antd';
 
 import './AtualizarCadastro.css';
-import useForm from './useForm';
+import { UserContext } from '../../../services/UserContext';
 
 const AtualizarCadastro = () => {
-    const { onHandleChange, values, handleSubmit} = useForm();
+    const {usuario} = useContext(UserContext);
+
+    const [values, setValues] = useState({
+        email: '',
+        telefone: '',
+        celular: '',
+        endereco: '',
+        numero: '',
+        complemento: '',
+        bairro: '',
+        cidade: '',
+        cep: ''
+    });
+    const key = 'updatable';
+
+    const onHandleChange = e => {
+        const {name, value} = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        const dados = {
+            ...values
+        }
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify(dados)
+        };
+
+        const url = window.servidor + '/alunos/atualizarCadastro/1';
+        fetch(url, requestOptions)
+            .then(res => res.json())
+            .then(dados => {
+                const {key, value} = Object.entries(dados);
+                setValues({
+                    ...values,
+                    [key]: value
+                })
+            })
+            .catch(erro => console.log(erro));
+    };
+
+    const handleClick = () => {
+        console.log(usuario);
+        message.loading({ 
+            content: 'Carregando...', 
+            key,
+            style: {
+                position: 'fixed',
+                top: '13vh',
+                right: '18vh'
+              },  
+        });
+
+        setTimeout(() => {
+            message.success({ 
+                content: 'Dados enviados!', 
+                key, 
+                duration: 2,
+                style: {
+                    position: 'fixed',
+                    top: '13vh',
+                    right: '18vh'
+                  }, 
+            });
+        }, 1000);
+    }
 
     return (
             <Container className="mt-5">
@@ -78,7 +152,11 @@ const AtualizarCadastro = () => {
                         </Col>
                     </Row>
 
-                    <Button className="mt-2" variant="primary" type="submit">
+                    <Button className="mt-2" 
+                        type="primary" 
+                        style={{width: '150px'}}
+                        onClick={handleClick}
+                        htmlType="submit">
                         Enviar
                     </Button>
                 </Form>

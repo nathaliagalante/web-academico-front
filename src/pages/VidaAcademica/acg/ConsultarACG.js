@@ -25,7 +25,7 @@ const ConsultarACG = () => {
 
     return (
         <>
-            <Container className="mt-5" style={{ maxHeight: '60vh' }}>
+            <Container className="mt-3" style={{ maxHeight: '60vh' }}>
                 <h1>ACGs</h1>
                 <hr></hr>
                 <Table 

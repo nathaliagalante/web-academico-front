@@ -178,23 +178,23 @@ const Boletim = () => {
                     dataSource={materias}
                     pagination={false}
                     bordered={true}
-                    size="middle"
+                    size="small"
                 />
 
                 <Table 
-                    style={{ marginTop: '15px' }}
+                    style={{ marginTop: '30px' }}
                     columns={columnsEstagio}
                     dataSource={estagio}
                     pagination={false}
-                    size="middle"
+                    size="small"
                 />
 
                 <Table 
-                    style={{ marginTop: '15px' }}
+                    style={{ marginTop: '30px' }}
                     columns={columnsTcc}
                     dataSource={tcc}
                     pagination={false}
-                    size="middle"
+                    size="small"
                 />
         </Container>
     )
