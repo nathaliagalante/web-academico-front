@@ -23,7 +23,7 @@ const Historico = () => {
               ref={node => {
                 searchInput = node;
               }}
-              placeholder={`Search ${dataIndex}`}
+              placeholder={`Procure ${dataIndex}`}
               value={selectedKeys[0]}
               onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
               onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}

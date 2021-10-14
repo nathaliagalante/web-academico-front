@@ -9,15 +9,15 @@ const AtualizarCadastro = () => {
     const {usuario} = useContext(UserContext);
 
     const [values, setValues] = useState({
-        email: '',
-        telefone: '',
-        celular: '',
-        endereco: '',
-        numero: '',
-        complemento: '',
-        bairro: '',
-        cidade: '',
-        cep: ''
+        email: 'nathalia@femass.com',
+        telefone: '2762 2762',
+        celular: '99988877',
+        endereco: 'Rua N',
+        numero: '1',
+        complemento: 'Casa',
+        bairro: 'Centro',
+        cidade: 'Macaé',
+        cep: '29837-945'
     });
     const key = 'updatable';
 
