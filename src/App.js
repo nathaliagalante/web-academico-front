@@ -27,13 +27,13 @@ function App() {
         <Switch>
             <Route exact path="/" render={() => <Redirect to="/form/Form" />} />
             <Route path="/form/Form" component={ Form } />
+            <Route path="/VidaAcademica/Comprovante" component={ Comprovante} />
 
             <UserContext.Provider value={{usuario}}>
                 <Menu />    
                     <Route path="/home" component={ Home } />
                     <Route path="/VidaAcademica/FazerMatricula" component={ FazerMatricula } />
                     <Route path="/VidaAcademica/Horario" component={ Horario } />
-                    <Route path="/VidaAcademica/Comprovante" component={ Comprovante} />
                     <Route path="/VidaAcademica/Boletim" component={ Boletim } />
                     <Route path="/VidaAcademica/ConsultarACG" component={ ConsultarACG } />
                     <Route path="/VidaAcademica/Historico" component={ Historico } />

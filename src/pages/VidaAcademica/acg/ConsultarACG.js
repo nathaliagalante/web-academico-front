@@ -46,7 +46,7 @@ const ConsultarACG = () => {
                     summary={() => (
                         <Table.Summary fixed>
                           <Table.Summary.Row>
-                            <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
+                            <Table.Summary.Cell index={0} colSpan={2}>Total</Table.Summary.Cell>
                             <Table.Summary.Cell index={1}>50/100</Table.Summary.Cell>
                           </Table.Summary.Row>
                         </Table.Summary>
