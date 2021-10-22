@@ -20,14 +20,14 @@ import Comprovante from './pages/VidaAcademica/horario/Comprovante';
 import { UserContext } from './services/UserContext';
 
 function App() {
-    const [usuario, setUsuario] = useState(null);
+    const [usuario] = useState(null);
       
   return (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" render={() => <Redirect to="/form/Form" />} />
             <Route path="/form/Form" component={ Form } />
-            <Route path="/VidaAcademica/Comprovante" component={ Comprovante} />
+            <Route path="/VidaAcademica/Comprovante" component={ Comprovante } />
 
             <UserContext.Provider value={{usuario}}>
                 <Menu />    

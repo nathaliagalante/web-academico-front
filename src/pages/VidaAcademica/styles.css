@@ -2,8 +2,19 @@ h1{
     font-weight: 300;
 }
 
-.table{
-    background: #fff;
+.logo-box,
+.primary-heading{
+    display: flex;
+    justify-content: center;
+}
+
+.primary-heading{
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+.logo-femass{
+    width: 22%;
 }
 
 .btn-matricula{
@@ -19,6 +30,8 @@ h1{
     font-weight: 300;
     margin-right: 10px;
 }
+
+
 
 @media (max-width: 997px) {
     .btn-matricula{
